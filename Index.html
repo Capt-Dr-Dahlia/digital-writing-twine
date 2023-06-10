@@ -3,148 +3,1269 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>Horror Prototype</title>
+<title>Horror - The Hungry House</title>
 <style title="Twine CSS">@keyframes appear{0%{opacity:0}to{opacity:1}}@keyframes fade-in-out{0%,to{opacity:0}50%{opacity:1}}@keyframes rumble{25%{top:-0.1em}75%{top:.1em}0%,to{top:0px}}@keyframes shudder{25%{left:.1em}75%{left:-0.1em}0%,to{left:0px}}@keyframes buoy{25%{top:.25em}75%{top:-0.25em}0%,to{top:0px}}@keyframes sway{25%{left:.25em}75%{left:-0.25em}0%,to{left:0px}}@keyframes pulse{0%{transform:scale(0, 0)}20%{transform:scale(1.2, 1.2)}40%{transform:scale(0.9, 0.9)}60%{transform:scale(1.05, 1.05)}80%{transform:scale(0.925, 0.925)}to{transform:scale(1, 1)}}@keyframes zoom-in{0%{transform:scale(0, 0)}to{transform:scale(1, 1)}}@keyframes shudder-in{0%,to{transform:translateX(0em)}5%,25%,45%{transform:translateX(-1em)}15%,35%,55%{transform:translateX(1em)}65%{transform:translateX(-0.6em)}75%{transform:translateX(0.6em)}85%{transform:translateX(-0.2em)}95%{transform:translateX(0.2em)}}@keyframes rumble-in{0%,to{transform:translateY(0em)}5%,25%,45%{transform:translateY(-1em)}15%,35%,55%{transform:translateY(1em)}65%{transform:translateY(-0.6em)}75%{transform:translateY(0.6em)}85%{transform:translateY(-0.2em)}95%{transform:translateY(0.2em)}}@keyframes fidget{0%,8.1%,82.1%,31.1%,38.1%,44.1%,40.1%,47.1%,74.1%,16.1%,27.1%,72.1%,24.1%,95.1%,6.1%,36.1%,20.1%,4.1%,91.1%,14.1%,87.1%,to{left:0px;top:0px}8%,82%,31%,38%,44%{left:-1px}40%,47%,74%,16%,27%{left:1px}72%,24%,95%,6%,36%{top:-1px}20%,4%,91%,14%,87%{top:1px}}@keyframes slide-right{0%{transform:translateX(-100vw)}}@keyframes slide-left{0%{transform:translateX(100vw)}}@keyframes slide-up{0%{transform:translateY(100vh)}}@keyframes slide-down{0%{transform:translateY(-100vh)}}@keyframes fade-right{0%{opacity:0;transform:translateX(-1em)}to{opacity:1}}@keyframes fade-left{0%{opacity:0;transform:translateX(1em)}to{opacity:1}}@keyframes fade-up{0%{opacity:0;transform:translateY(1em)}to{opacity:1}}@keyframes fade-down{0%{opacity:0;transform:translateY(-1em)}to{opacity:1}}@keyframes flicker{0%,29%,31%,63%,65%,77%,79%,86%,88%,91%,93%{opacity:0}30%{opacity:.2}64%{opacity:.4}78%{opacity:.6}87%{opacity:.8}92%,to{opacity:1}}@keyframes blur{0%{filter:blur(2rem);opacity:0}25%{opacity:1}to{filter:blur(0rem);opacity:1}}.dom-debug-mode tw-story,.dom-debug-mode tw-passage,.dom-debug-mode tw-sidebar,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{outline:1px solid #f5a3da;min-height:32px;display:block !important}.dom-debug-mode tw-story::before,.dom-debug-mode tw-passage::before,.dom-debug-mode tw-sidebar::before,.dom-debug-mode tw-include::before,.dom-debug-mode tw-hook::before,.dom-debug-mode tw-expression::before,.dom-debug-mode tw-link::before,.dom-debug-mode tw-dialog::before,.dom-debug-mode tw-columns::before,.dom-debug-mode tw-column::before,.dom-debug-mode tw-align::before{position:absolute;top:0;left:0;height:16px;background-color:#f5a3da;color:#000;font-size:16px;font-weight:normal;font-style:normal;font-family:monospace;display:inline-block;line-height:100%;white-space:pre;z-index:999997}.dom-debug-mode tw-story:hover,.dom-debug-mode tw-passage:hover,.dom-debug-mode tw-sidebar:hover,.dom-debug-mode tw-include:hover,.dom-debug-mode tw-hook:hover,.dom-debug-mode tw-expression:hover,.dom-debug-mode tw-link:hover,.dom-debug-mode tw-dialog:hover,.dom-debug-mode tw-columns:hover,.dom-debug-mode tw-column:hover,.dom-debug-mode tw-align:hover{outline:1px solid #fc9}.dom-debug-mode tw-story:hover::before,.dom-debug-mode tw-passage:hover::before,.dom-debug-mode tw-sidebar:hover::before,.dom-debug-mode tw-include:hover::before,.dom-debug-mode tw-hook:hover::before,.dom-debug-mode tw-expression:hover::before,.dom-debug-mode tw-link:hover::before,.dom-debug-mode tw-dialog:hover::before,.dom-debug-mode tw-columns:hover::before,.dom-debug-mode tw-column:hover::before,.dom-debug-mode tw-align:hover::before{background-color:#fc9;transition:background-color 1s}.dom-debug-mode tw-passage,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{padding:1em;margin:0}.dom-debug-mode tw-story::before{content:'<tw-story tags="' attr(tags) '">'}.dom-debug-mode tw-passage::before{top:-16px;content:'<tw-passage tags="' attr(tags) '">'}.dom-debug-mode tw-sidebar::before{top:-16px;content:"<tw-sidebar>"}.dom-debug-mode tw-hook::before{content:'<tw-hook name="' attr(name) '">'}.dom-debug-mode tw-expression::before{content:'<tw-expression name="' attr(name) '">'}.dom-debug-mode tw-link::before{content:'<tw-link name="' attr(name) '">'}.dom-debug-mode tw-dialog::before{content:"<tw-dialog>"}.dom-debug-mode tw-columns::before{content:"<tw-columns>"}.dom-debug-mode tw-column::before{content:"<tw-column>"}.dom-debug-mode tw-align::before{content:"<tw-align>"}.dom-debug-mode tw-include::before{content:'<tw-include type="' attr(type) '" name="' attr(name) '">'}tw-open-button[goto]{display:none}.debug-mode tw-open-button[replay],.debug-mode tw-open-button[goto]{display:inline}.debug-mode tw-expression{display:inline-block !important}.debug-mode tw-expression[type=variable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"$" attr(name)}.debug-mode tw-expression[type=tempVariable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"_" attr(name)}.debug-mode tw-expression[return=boolean]{background-color:rgba(179,179,179,.2)}.debug-mode tw-expression[return=array]{background-color:rgba(255,102,102,.2)}.debug-mode tw-expression[return=dataset]{background-color:rgba(255,128,0,.2)}.debug-mode tw-expression[return=number]{background-color:rgba(255,179,102,.2)}.debug-mode tw-expression[return=datamap]{background-color:rgba(255,255,102,.2)}.debug-mode tw-expression[return=changer]{background-color:rgba(179,255,102,.2)}.debug-mode tw-expression[return=lambda]{background-color:rgba(102,255,102,.2)}.debug-mode tw-expression[return=hookname]{background-color:rgba(102,255,204,.2)}.debug-mode tw-expression[return=string]{background-color:rgba(102,255,255,.2)}.debug-mode tw-expression[return=datatype]{background-color:rgba(102,153,255,.2)}.debug-mode tw-expression[return=gradient],.debug-mode tw-expression[return=colour]{background-color:rgba(204,102,255,.2)}.debug-mode tw-expression[return=instant],.debug-mode tw-expression[return=macro]{background-color:rgba(240,117,199,.2)}.debug-mode tw-expression[return=command]{background-color:rgba(153,153,255,.2)}.debug-mode tw-expression.false{background-color:rgba(255,0,0,.2) !important}.debug-mode tw-expression[type=macro]::before{content:"(" attr(name) ":)";padding:0 .5rem;font-size:1rem;vertical-align:middle;line-height:normal;background-color:inherit;border:1px solid rgba(255,255,255,.5)}.debug-mode tw-expression[title]:not([title=""]){cursor:help}.debug-mode tw-hook{background-color:rgba(0,85,255,.1) !important}.debug-mode tw-hook::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"["}.debug-mode tw-hook::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]"}.debug-mode tw-hook[name]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]<" attr(name) "|"}.debug-mode tw-pseudo-hook{background-color:rgba(255,170,0,.1) !important}.debug-mode tw-collapsed::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"{"}.debug-mode tw-collapsed::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"}"}.debug-mode tw-verbatim::before,.debug-mode tw-verbatim::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"`"}.debug-mode tw-align[style*="text-align: center"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0) 0%, hsla(14deg, 100%, 87%, 0.25) 50%, hsla(14deg, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: left"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0.25) 0%, hsla(14deg, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: right"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0) 0%, hsla(14deg, 100%, 87%, 0.25) 100%)}.debug-mode tw-column{background-color:rgba(189,228,255,.2)}.debug-mode tw-enchantment{animation:enchantment .5s infinite;border:1px solid}.debug-mode tw-link::after,.debug-mode tw-broken-link::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(passage-name)}.debug-mode tw-include{background-color:rgba(204,128,51,.1)}.debug-mode tw-include::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(type) ' "' attr(name) '"'}.debug-dialogs tw-backdrop:not(.eval-replay):not(.harlowe-crash){pointer-events:none;opacity:.1}tw-eval-replay tw-eval-code,tw-eval-replay tw-eval-explanation{max-height:20vh;overflow:auto;margin:10px auto}tw-eval-replay tw-eval-code{display:block;font-family:monospace;padding-bottom:1ex;border-bottom:2px solid gray}tw-eval-replay tw-eval-explanation{display:block;text-align:center}tw-eval-replay tw-eval-explanation>code{white-space:pre-wrap}tw-eval-replay tw-eval-explanation>code.from-block{width:40%;display:inline-block;text-align:left;max-height:4em;overflow-wrap:anywhere;overflow-y:scroll}tw-eval-replay tw-eval-explanation>code.from-block~.to-desc{width:calc(40% - 2em);margin-left:2em;display:inline-block}tw-eval-replay tw-eval-explanation>code.from-block+span::after{content:"..."}tw-eval-replay tw-eval-explanation>code.from-inline{text-align:right}tw-eval-replay tw-eval-explanation>:nth-child(2){white-space:pre}tw-eval-replay tw-eval-explanation>.to-desc{text-align:left}tw-eval-replay tw-eval-explanation>table{width:100%;margin-top:1em}tw-eval-replay tw-eval-explanation>table td{white-space:pre-wrap !important;word-wrap:anywhere}tw-eval-replay tw-eval-reason{text-align:center;font-size:80%;font-style:italic;display:block}tw-eval-replay tw-eval-it{text-align:center;font-size:80%;display:block}tw-eval-replay tw-dialog-links{display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around}@keyframes enchantment{0%,to{border-color:#ffb366}50%{border-color:#6fc}}tw-debugger{position:fixed;box-sizing:border-box;bottom:0;right:0;z-index:999999;min-width:14em;min-height:1em;padding:0em .5em .5em 1em;font-size:1.25em;font-family:sans-serif;color:#262626;background-color:#fff;border-left:solid #262626 2px;border-top:solid #262626 2px;border-top-left-radius:.5em;opacity:1}tw-debugger.fade-panel:not(:hover){opacity:.33}tw-debugger.theme-dark{color:#d9d9d9;background-color:#000}tw-debugger.theme-dark{border-color:#d9d9d9 rgba(0,0,0,0) rgba(0,0,0,0) #d9d9d9}tw-debugger select{margin-right:1em;width:12em}tw-debugger button,tw-debugger tw-link{border-radius:3px;border:solid #999 1px;margin:auto 4px;color:#262626;background-color:#fff;cursor:pointer}tw-debugger button.enabled,tw-debugger tw-link.enabled{color:#000;background-color:#d9d9d9;box-shadow:inset #999 3px 5px .5em}tw-debugger.theme-dark button,tw-debugger.theme-dark tw-link{color:#d9d9d9;background-color:#000;border-color:#666}tw-debugger.theme-dark button.enabled,tw-debugger.theme-dark tw-link.enabled{color:#e6e6e6;background-color:#424242;box-shadow:inset #666 3px 5px .5em}tw-debugger button{font-size:1em;overflow-x:hidden;text-overflow:ellipsis;white-space:pre}tw-debugger tw-link{font-size:1.25em;border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}tw-debugger tw-link:hover{border-color:#262626;color:#262626}tw-debugger.theme-dark tw-link:hover{border-color:#d9d9d9;color:#d9d9d9}tw-debugger tw-dialog{background-color:#fff;color:#000;font-size:1.25em}tw-debugger.theme-dark tw-dialog{background-color:#000;color:#e6e6e6}tw-debugger .panel{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;position:absolute;bottom:100%;left:-2px;right:0;padding:1em;overflow-y:scroll;overflow-x:hidden;border:inherit;box-sizing:content-box;background-color:#fff;border-bottom:solid #999 2px;border-top-left-radius:.5em;border-bottom-left-radius:.5em;font-size:.8em}tw-debugger .panel:empty,tw-debugger .panel[hidden]{display:none}tw-debugger.theme-dark .panel{background-color:#000;border-bottom-color:#666}tw-debugger .panel-source .panel-row-buttons{width:2rem}tw-debugger .panel-source .source-tags{width:20%;font-style:italic}tw-debugger .panel-row-source td{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:8rem;padding:1rem}tw-debugger .panel-rows{width:100%;overflow-x:scroll}tw-debugger .panel-rows>*{display:table-row}tw-debugger .panel-rows>div:nth-of-type(2n){background-color:#e6e6e6}tw-debugger .panel-tools .panel-rows>*,tw-debugger .panel-options .panel-rows>*{margin-top:.4rem;display:block}tw-debugger.theme-dark .panel-rows>div:nth-of-type(2n){background-color:#212121}tw-debugger .panel-row-buttons{text-align:right}tw-debugger .panel-variables .panel-rows:empty::before{content:"~ No variables ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-enchantments .panel-rows:empty::before{content:"~ No enchantments ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty::before{content:"~ No errors... for now. ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty+.panel-errors-bottom{display:none}tw-debugger.theme-dark .panel-variables .panel-rows:empty::before,tw-debugger.theme-dark .panel-enchantments .panel-rows:empty::before,tw-debugger.theme-dark .panel-errors .panel-rows:empty::before{color:#a8a8a8}tw-debugger .panel-rows:empty+.panel-variables-bottom{display:none}tw-debugger th[data-col]{text-decoration:underline;cursor:pointer}tw-debugger th[data-col][data-order=asc]::after{content:"↓"}tw-debugger th[data-col][data-order=desc]::after{content:"↑"}tw-debugger .panel-storylets:not(.panel-exclusive) .storylet-exclusive,tw-debugger .panel-storylets:not(.panel-urgent) .storylet-urgent{display:none}tw-debugger .storylet-exclusive,tw-debugger .storylet-urgent,tw-debugger .storylet-open{text-align:center}tw-debugger .panel-variables-bottom{padding-top:5px}tw-debugger .enchantment-row{min-height:1.5em}tw-debugger .variable-path{opacity:.4}tw-debugger .temporary-variable-scope,tw-debugger .enchantment-local{font-family:sans-serif;font-weight:normal;opacity:.8;font-size:.75em}tw-debugger .temporary-variable-scope:not(:empty)::before,tw-debugger .enchantment-local:not(:empty)::before{content:" in "}tw-debugger .variable-name,tw-debugger .enchantment-name{font-family:monospace;font-weight:bold}tw-debugger .variable-type{color:#575757;font-weight:normal;text-overflow:ellipsis;overflow:hidden;max-width:10em}tw-debugger.theme-dark .variable-type{color:#a8a8a8}tw-debugger .error-row{display:table-row;background-color:rgba(230,101,204,.3)}tw-debugger .error-row:nth-of-type(2n){background-color:rgba(237,145,219,.3)}tw-debugger .error-row>*{display:table-cell;padding:.25em .5em}tw-debugger .error-row .error-message[title]:not([title=""]){cursor:help}tw-debugger .error-row .error-passage{color:#575757}tw-debugger.theme-dark .error-row .error-passage{color:#a8a8a8}tw-debugger .storylet-row{background-color:rgba(193,240,225,.3)}tw-debugger .storylet-row:nth-child(2n){background-color:rgba(152,231,204,.3)}tw-debugger .storylet-row.storylet-closed{font-style:italic;background-color:#fff}tw-debugger .storylet-row.storylet-closed:nth-child(2n){background-color:#e6e6e6}tw-debugger .storylet-row.storylet-closed>:not(.storylet-lambda){opacity:.6}.storylet-error tw-debugger .storylet-row{background-color:rgba(230,101,204,.3)}.storylet-error tw-debugger .storylet-row:nth-child(2n){background-color:rgba(237,145,219,.3)}tw-debugger .storylet-row .storylet-name,tw-debugger .storylet-row .storylet-value{display:inline-block;width:50%}tw-debugger .storylet-row .storylet-lambda{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere}tw-debugger.theme-dark .storylet-row.storylet-closed{background-color:#000}tw-debugger.theme-dark .storylet-row.storylet-closed:nth-child(2n){background-color:#212121}tw-debugger .tabs{padding-bottom:.5em}tw-debugger .tab{border-radius:0px 0px .5em .5em;border-top:none;top:-2px}tw-debugger .resizer-h{position:absolute;height:14em;border-left:2px solid #999;border-right:2px solid #999;top:10px;left:4px;width:8px;cursor:ew-resize}tw-debugger.theme-dark .resizer-h{border-color:rgba(0,0,0,0) #666}tw-debugger .resizer-v{position:absolute;height:8px;border-top:2px solid #999;border-bottom:2px solid #999;margin-bottom:4px;top:4px;left:10px;width:95%;cursor:ns-resize;box-sizing:border-box}tw-debugger.theme-dark .resizer-v{border-color:#666 rgba(0,0,0,0)}tw-debugger mark{color:inherit;background-color:rgba(101,230,230,.3) !important}tw-dialog{z-index:999997;border:#fff solid 2px;padding:2em;color:#fff;background-color:#000;display:block}@media(min-width: 576px){tw-dialog{max-width:50vw}}tw-dialog input[type=text]{font-size:inherit;width:100%;border:solid #fff !important}tw-dialog-links{text-align:right;display:-ms-flexbox;display:flex;-ms-flex-pack:end;justify-content:flex-end}tw-backdrop{z-index:999996;position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.8);display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}tw-backdrop~tw-backdrop{display:none}tw-link,.enchantment-link{cursor:pointer;color:#4169e1;font-weight:bold;text-decoration:none;transition:color .2s ease-in-out}tw-passage [style^=color] tw-link:not(:hover),tw-passage [style*=" color"] tw-link:not(:hover),tw-passage [style^=color][hover=true] tw-link:hover,tw-passage [style*=" color"][hover=true] tw-link:hover,tw-passage [style^=color] .enchantment-link:not(:hover),tw-passage [style*=" color"] .enchantment-link:not(:hover),tw-passage [style^=color][hover=true] .enchantment-link:hover,tw-passage [style*=" color"][hover=true] .enchantment-link:hover{color:inherit}tw-link:hover,.enchantment-link:hover{color:#00bfff}tw-link:active,.enchantment-link:active{color:#dd4b39}.visited{color:#6941e1}tw-passage [style^=color] .visited:not(:hover),tw-passage [style*=" color"] .visited:not(:hover),tw-passage [style^=color][hover=true] .visited:hover,tw-passage [style*=" color"][hover=true] .visited:hover{color:inherit}.visited:hover{color:#e3e}tw-broken-link{color:#933;border-bottom:2px solid #933;cursor:not-allowed}tw-passage [style^=color] tw-broken-link:not(:hover),tw-passage [style*=" color"] tw-broken-link:not(:hover),tw-passage [style^=color][hover=true] tw-broken-link:hover,tw-passage [style*=" color"][hover=true] tw-broken-link:hover{color:inherit}tw-link.enchantment-mouseover,.link.enchantment-mouseover,tw-expression.enchantment-mouseover>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border-bottom:2px dashed #999}tw-link.enchantment-mouseover:hover,tw-link.enchantment-mouseover:active,.link.enchantment-mouseover:hover,.link.enchantment-mouseover:active,tw-expression.enchantment-mouseover>tw-link:hover,tw-expression.enchantment-mouseover>tw-link:active{color:inherit}tw-link.enchantment-mouseover.enchantment-button,.link.enchantment-mouseover.enchantment-button,tw-expression.enchantment-mouseover>tw-link.enchantment-button{border-style:dashed}tw-link.enchantment-mouseout,.link.enchantment-mouseout,tw-expression.enchantment-mouseout>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border:rgba(64,149,191,.6) 1px solid;border-radius:.2em}tw-link.enchantment-mouseout:hover,tw-link.enchantment-mouseout:active,.link.enchantment-mouseout:hover,.link.enchantment-mouseout:active,tw-expression.enchantment-mouseout>tw-link:hover,tw-expression.enchantment-mouseout>tw-link:active{color:inherit}tw-link.enchantment-mouseout:hover,.link.enchantment-mouseout:hover,tw-expression.enchantment-mouseout>tw-link:hover{background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 1px solid}tw-link.enchantment-dblclick,.link.enchantment-dblclick,tw-expression.enchantment-dblclick>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;cursor:pointer;border:2px solid #999;border-radius:0}tw-link.enchantment-dblclick:hover,tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:hover,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:hover,tw-expression.enchantment-dblclick>tw-link:active{color:inherit}tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:active{background-color:#999}tw-link.enchantment-button,.link.enchantment-button,.enchantment-button:not(.link) tw-link,.enchantment-button:not(.link) .link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}.enchantment-button{display:block}.enchantment-clickblock{cursor:pointer;width:100%;height:100%;display:block}.enchantment-clickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;color:rgba(65,105,225,.5);transition:color .2s ease-in-out}.enchantment-clickblock>:not(tw-enchantment):hover::after{color:rgba(0,191,255,.5)}.enchantment-clickblock>:not(tw-enchantment):active::after{color:rgba(222,78,59,.5)}.enchantment-clickblock>:not(tw-enchantment)::after{box-shadow:inset 0 0 0 .5vmax}.enchantment-clickblock>tw-passage::after,.enchantment-clickblock>tw-sidebar::after{box-shadow:0 0 0 .5vmax}.enchantment-mouseoverblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:2px dashed #999}.enchantment-mouseoutblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:rgba(64,149,191,.6) 2px solid}.enchantment-mouseoutblock:hover>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 2px solid;border-radius:.2em}.enchantment-dblclickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;cursor:pointer;border:2px solid #999}tw-dialog-links{padding-top:1.5em}tw-dialog-links tw-link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block;display:inline-block}html{margin:0;height:100%;overflow-x:hidden}*,:before,:after{position:relative;box-sizing:inherit}body{margin:0;height:100%}tw-storydata{display:none}tw-story{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;font:100% Georgia,serif;box-sizing:border-box;width:100%;min-height:100%;font-size:1.5em;line-height:1.5em;padding:5% 5%;overflow:hidden;background-color:#000;color:#fff}tw-story [style*=content-box] *{box-sizing:border-box}@media(min-width: 576px){tw-story{padding:5% 20%}}tw-story tw-consecutive-br{display:block;height:1.6ex;visibility:hidden}tw-story select{background-color:rgba(0,0,0,0);font:inherit;border-style:solid;padding:2px}tw-story select:not([disabled]){color:inherit}tw-story textarea{resize:none;background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none;padding:2px}tw-story input[type=text]{background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none}tw-story input[type=checkbox]{transform:scale(1.5);margin:0 .5em .5em .5em;vertical-align:middle}tw-story tw-noscript{animation:appear .8s}tw-passage{display:block}tw-sidebar{text-align:center;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}@media(min-width: 576px){tw-sidebar{left:-5em;width:3em;position:absolute;-ms-flex-direction:column;flex-direction:column}tw-enchantment[style*=width]>tw-sidebar{width:inherit}}tw-icon{display:inline-block;margin:.5em 0;font-size:66px;font-family:"Verdana",sans-serif}tw-icon[alt]{opacity:.2;cursor:pointer}tw-icon[alt]:hover{opacity:.4}tw-icon[data-label]::after{font-weight:bold;content:attr(data-label);font-size:20px;bottom:-20px;left:-50%;white-space:nowrap}tw-meter{display:block}tw-hook:empty,tw-expression:empty{display:none}tw-error{display:inline-block;border-radius:.2em;padding:.2em;font-size:1rem;cursor:help;white-space:pre-wrap}tw-error.error{background-color:rgba(223,58,190,.6);color:#fff}tw-error.warning{background-color:rgba(223,140,58,.6);color:#fff;display:none}.debug-mode tw-error.warning{display:inline}tw-error-explanation{display:block;font-size:.8rem;line-height:1rem}tw-open-button,tw-folddown{cursor:pointer;line-height:0em;border-radius:4px;border:1px solid rgba(255,255,255,.5);font-size:.8rem;margin:0 .2rem;padding:3px;white-space:pre}tw-folddown::after{content:"▶"}tw-folddown.open::after{content:"▼"}tw-open-button[replay]{display:none}tw-error tw-open-button,tw-eval-replay tw-open-button{display:inline !important}tw-open-button::after{content:attr(label)}tw-notifier{border-radius:.2em;padding:.2em;font-size:1rem;background-color:rgba(223,182,58,.4);display:none}.debug-mode tw-notifier{display:inline}tw-notifier::before{content:attr(message)}tw-colour{border:1px solid #000;display:inline-block;width:1em;height:1em}tw-enchantment:empty{display:none}h1{font-size:3em}h2{font-size:2.25em}h3{font-size:1.75em}h1,h2,h3,h4,h5,h6{line-height:1em;margin:.3em 0 .6em 0}pre{font-size:1rem;line-height:initial}small{font-size:70%}big{font-size:120%}mark{color:rgba(0,0,0,.6);background-color:#ff9}ins{color:rgba(0,0,0,.6);background-color:rgba(255,242,204,.5);border-radius:.5em;box-shadow:0em 0em .2em #ffe699;text-decoration:none}center{text-align:center;margin:0 auto;width:60%}blink{text-decoration:none;animation:fade-in-out 1s steps(1, end) infinite alternate}tw-align{display:block}tw-columns{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between}.transition-in{animation:appear 0ms step-start}.transition-out{animation:appear 0ms step-end}[data-t8n^=dissolve].transition-in,[data-t8n=fade].transition-in{animation:appear .8s}[data-t8n^=dissolve].transition-out,[data-t8n=fade].transition-out{animation:appear .8s reverse}[data-t8n^=shudder].transition-in{display:inline-block !important;animation:shudder-in .8s}[data-t8n^=shudder].transition-out{display:inline-block !important;animation:shudder-in .8s reverse}[data-t8n^=rumble].transition-in{display:inline-block !important;animation:rumble-in .8s}[data-t8n^=rumble].transition-out{display:inline-block !important;animation:rumble-in .8s reverse}[data-t8n^=pulse].transition-in{animation:pulse .8s;display:inline-block !important}[data-t8n^=pulse].transition-out{animation:pulse .8s reverse;display:inline-block !important}[data-t8n^=zoom].transition-in{animation:zoom-in .8s;display:inline-block !important}[data-t8n^=zoom].transition-out{animation:zoom-in .8s reverse;display:inline-block !important}[data-t8n^=blur].transition-in{animation:blur .8s;display:inline-block !important}[data-t8n^=blur].transition-out{animation:blur .8s reverse;display:inline-block !important}[data-t8n^=slideleft].transition-in{animation:slide-left .8s;display:inline-block !important}[data-t8n^=slideleft].transition-out{animation:slide-right .8s reverse;display:inline-block !important}[data-t8n^=slideright].transition-in{animation:slide-right .8s;display:inline-block !important}[data-t8n^=slideright].transition-out{animation:slide-left .8s reverse;display:inline-block !important}[data-t8n^=slideup].transition-in{animation:slide-up .8s;display:inline-block !important}[data-t8n^=slideup].transition-out{animation:slide-down .8s reverse;display:inline-block !important}[data-t8n^=slidedown].transition-in{animation:slide-down .8s;display:inline-block !important}[data-t8n^=slidedown].transition-out{animation:slide-up .8s reverse;display:inline-block !important}[data-t8n^=fadeleft].transition-in{animation:fade-left .8s;display:inline-block !important}[data-t8n^=fadeleft].transition-out{animation:fade-right .8s reverse;display:inline-block !important}[data-t8n^=faderight].transition-in{animation:fade-right .8s;display:inline-block !important}[data-t8n^=faderight].transition-out{animation:fade-left .8s reverse;display:inline-block !important}[data-t8n^=fadeup].transition-in{animation:fade-up .8s;display:inline-block !important}[data-t8n^=fadeup].transition-out{animation:fade-down .8s reverse;display:inline-block !important}[data-t8n^=fadedown].transition-in{animation:fade-down .8s;display:inline-block !important}[data-t8n^=fadedown].transition-out{animation:fade-up .8s reverse;display:inline-block !important}[data-t8n^=flicker].transition-in{animation:flicker .8s}[data-t8n^=flicker].transition-out{animation:flicker .8s reverse}
 </style>
 </head>
 <body>
-<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Horror Prototype.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Horror Prototype" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="8E8C72D2-ED13-4A89-B0A6-41E0A42EFCD7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="intro" tags="" position="800,0" size="100,100">Introduction
-
-- exposition
-
-- no [[wound example 1%]]</tw-passagedata><tw-passagedata pid="2" name="continue" tags="" position="825,125" size="100,100">Enter the house,
+<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Horror - The Hungry House.</tw-noscript></noscript></tw-story>
+<tw-storydata name="Horror - The Hungry House" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="8E8C72D2-ED13-4A89-B0A6-41E0A42EFCD7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="A cold night on a twisting woodland road" tags="" position="2900,0" size="100,100">(set: $Ignorance to 1)
+(if: $Ignorance is 1)+(text-colour:#2ea3a3)[//You are happily Ignorant of the true nature of the world//]
 
 
-simple choices, but no splintering of [[branch]]
-
-both choices connect back [[up]]
-
-introducing the idea of pictures as clues that might help later.</tw-passagedata><tw-passagedata pid="3" name="branch" tags="" position="750,225" size="100,100">&lt;img class=&quot;story-image&quot; src=&quot;./images/P1010034.jpg&quot; alt=&quot;an example&quot; /&gt;
 
 
-  [[next]]</tw-passagedata><tw-passagedata pid="4" name="up" tags="" position="1000,200" size="100,100">&lt;img class=&quot;story-image&quot; src=&quot;./images/P1010035.jpg&quot; alt=&quot;an example&quot; /&gt;
 
 
-[[next]]</tw-passagedata><tw-passagedata pid="5" name="next" tags="" position="800,350" size="100,100">deeper into the house 
+
+\
 
 
-and we get our first real splintering choice
+
+\
+
+‘… about ten thousand should be enough, in cash of course, and she will be returned. Do you wonder at all, how she feels as nothing more than an object to you once  aga-’
+
+You fold the soggy letter back into your jacket pocket as the lonely street light flickers above – too dim to read. Strange how a certain combination of words can etch themselves into your brain like invasive patterns repeating, compulsive. The woods creak with a gentle wind whispering while you wait in trepidation to enter, to leave the safety of your parked car. Somewhere a coder works at a computer, typing away to update an online map of the world and this region – once again leaving this spot blank. This is nowhere.
+
+\
+
+[[Enter the Woods]]
 
 
-[[Law]]
 
-[[next1]]
 
-[[wound1]]</tw-passagedata><tw-passagedata pid="6" name="Law" tags="" position="1300,500" size="100,100">revelation of narrators involvement with the law.
+</tw-passagedata><tw-passagedata pid="2" name="Keep your focus and continue" tags="" position="2900,400" size="100,100">(if: $Ignorance is &gt; 1)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
 
-[[law2]]</tw-passagedata><tw-passagedata pid="7" name="next1" tags="" position="800,500" size="100,100">deeper still
 
-another choice of background
 
-[[spirirtual]]
 
-[[next2]]
 
-[[wound2]]</tw-passagedata><tw-passagedata pid="8" name="law2" tags="" position="1300,700" size="100,100">[[law3]]
 
-[[wound-law1]]</tw-passagedata><tw-passagedata pid="9" name="spirirtual" tags="" position="300,700" size="100,100">[[spiritual2]]
 
-[[conspiracist]]
+\
 
-[[wound-religous1]]</tw-passagedata><tw-passagedata pid="10" name="next2" tags="" position="800,700" size="100,100">[[charismatic]]
 
-[[artistic wound1]]</tw-passagedata><tw-passagedata pid="11" name="charismatic" tags="" position="1000,900" size="100,100">[[charasmatic 1]]
 
-[[charmer]]</tw-passagedata><tw-passagedata pid="12" name="artistic" tags="" position="650,925" size="100,100">[[pagan]]
+\
 
-[[surrealist]]</tw-passagedata><tw-passagedata pid="13" name="law3" tags="" position="1300,900" size="100,100">[[cop]]
 
-[[criminal]]
 
-[[law4]]</tw-passagedata><tw-passagedata pid="14" name="cop" tags="" position="1700,1100" size="100,100">[[cop2]]</tw-passagedata><tw-passagedata pid="15" name="criminal" tags="" position="1500,1100" size="100,100">[[criminal 2]]</tw-passagedata><tw-passagedata pid="16" name="law4" tags="" position="1300,1100" size="100,100">[[lawyer]]
 
-[[nightwatch]]</tw-passagedata><tw-passagedata pid="17" name="cop2" tags="" position="1700,1300" size="100,100">[[cop3]]
+Through the gnarled thicket, you see the slick stone of an old mansion, glistening in the moonlight. The rust gates of the grounds have ceded into the earth and you shove your way through, onto smashed-up mossy cobble. Faded graffiti heralds the entrance. Despite the dilapidation, the door looks sealed shut.
 
-[[detective]]</tw-passagedata><tw-passagedata pid="18" name="cop3" tags="" position="1700,1500" size="100,100">[[bad end 1]]</tw-passagedata><tw-passagedata pid="19" name="detective" tags="" position="1900,1500" size="100,100">[[detective 2]]
-[[wound detective]]</tw-passagedata><tw-passagedata pid="20" name="bad end 1" tags="" position="400,2400" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="lawyer" tags="" position="1200,1300" size="100,100">[[wound-lawyer]]
+\
 
-[[wound-lawyer]]
+Find a hefty stick to smash a window (link: &quot;open&quot;)[(set: $smash to 1)(goto: &quot;open&quot;)]
 
-[[lawyer2]]</tw-passagedata><tw-passagedata pid="22" name="nightwatch" tags="" position="1400,1300" size="100,100">[[nightwatch 2]]
+\
 
-[[wound-nightwatch]]</tw-passagedata><tw-passagedata pid="23" name="charasmatic 1" tags="" position="1000,1100" size="100,100">[[charasmatic 2]]
+Use a piece of the rusted iron gate as a crowbar to pry the door (link: &quot;open&quot;)[(set: $crowbar to 1)(goto: &quot;open&quot;)]
 
-[[lawyer]]</tw-passagedata><tw-passagedata pid="24" name="charasmatic 2" tags="" position="1000,1300" size="100,100">[[charasmatic 3]] </tw-passagedata><tw-passagedata pid="25" name="charmer" tags="" position="850,1100" size="100,100">[[charmerwound]]
+\
 
-[[charasmatic 2]]</tw-passagedata><tw-passagedata pid="26" name="spiritual2" tags="" position="300,900" size="100,100">[[pagan]]
+Pick the Lock  (link: &quot;open&quot;)[(set: $pick to 1)(goto: &quot;open&quot;)]
+</tw-passagedata><tw-passagedata pid="3" name="Investigate the whisper" tags="" position="2700,300" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
 
-[[religous3]]
-</tw-passagedata><tw-passagedata pid="27" name="conspiracist" tags="" position="100,900" size="100,100">[[conspiracist2]]
 
-</tw-passagedata><tw-passagedata pid="28" name="pagan" tags="" position="500,1100" size="100,100">[[wound-pagan]]
+(set: $Ignorance to $Ignorance +1)
 
-[[pagan2]]</tw-passagedata><tw-passagedata pid="29" name="religous3" tags="" position="300,1100" size="100,100">[[religous 4]]
+You see her. 
 
-[[wound-religous]]</tw-passagedata><tw-passagedata pid="30" name="surrealist" tags="" position="700,1100" size="100,100">[[surrealist 2]]</tw-passagedata><tw-passagedata pid="31" name="conspiracist2" tags="" position="100,1100" size="100,100">[[conspiracist3]]</tw-passagedata><tw-passagedata pid="32" name="conspiracist3" tags="" position="50,1300" size="100,100">[[bad end 1]]</tw-passagedata><tw-passagedata pid="33" name="religous 4" tags="" position="300,1300" size="100,100">[[religous 5]]</tw-passagedata><tw-passagedata pid="34" name="wound1" tags="" position="625,400" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 6, 0.1432,(hsl:0,0,0,0.25),0.6889,(hsl:270,0.8039,0.5,0.55)))) ouchie you got a wound
+For a small, trivial, incremental, millisecond moment – you see her.
+Old linguistic patterns from before lodged deep in the memory, squeeze sharp at your synapses.
+
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+[[Keep your focus and continue]]</tw-passagedata><tw-passagedata pid="4" name="Unholster your revolver" tags="" position="3800,800" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+
+\
+
+
+
+
+\
+
+
+
+You pull the revolver from its hip holster, it feels comfortable in your hand. You step cautious but ready towards the end of the corridor. There are other doors off to the side but the lit candle illuminates the furthest.
+
+\
+
+[[Exit the hallway]]</tw-passagedata><tw-passagedata pid="5" name="Continue carefully onwards" tags="" position="2900,800" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+
+\
+
+
+
+
+\
+
+
+
+
+You step cautious but ready towards the end of the corridor. There are other doors off to the side but the lit candle illuminates the furthest. Your nerves are on edge and you turn to your comfort item to calm down.
+
+
+\
+
+You do not need comfort, you are strong and [[without fear]]
+
+\
+
+You recite words or trace in your mind the twisting patterns of some work of [[creativity]]</tw-passagedata><tw-passagedata pid="6" name="Exit the hallway" tags="" position="3800,1000" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+
+\
+
+
+
+
+\
+
+The candle flame reaches its nadir and the room goes black. You rush forward past it into the next room. A once regal foyer now covered in rubble, drops of water slobber from gaps in the roof and an undescovered genus of tree grows sickly. A set of wide stairs gape open and upwards. Chandeliers dangle at the top  -- tonsils of the waiting maw.
+
+A rat or seomthing scuttles somewhere near.
+
+The cracking of weak floorboards betrays your approach. They echo loudly like a painful orchestra.
+
+\
+
+[[Stay close to the wall to prevent the creaking]]
+
+\
+
+[[Cock the hammer of the revolver]] ready to fire at the slightest sound or movement.</tw-passagedata><tw-passagedata pid="7" name="creativity" tags="" position="2700,900" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+The words seem off, the patterns warped. You have trouble focusing. There is something about that piece of art you nevernoticed before.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
  
- [[next1]]</tw-passagedata><tw-passagedata pid="35" name="wound-law1" tags="" position="1450,800" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 6, 0.1432,(hsl:0,0,0,0.25),0.6889,(hsl:270,0.8039,0.5,0.55)))) ouchie you got a wound
-
-[[law3]]</tw-passagedata><tw-passagedata pid="36" name="wound-religous1" tags="" position="450,825" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 6, 0.1432,(hsl:0,0,0,0.25),0.6889,(hsl:270,0.8039,0.5,0.55)))) ouchie you got a wound
-
-
-[[spiritual2]]</tw-passagedata><tw-passagedata pid="37" name="wound2" tags="" position="925,625" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 6, 0.1432,(hsl:0,0,0,0.25),0.6889,(hsl:270,0.8039,0.5,0.55)))) ouchie you got a wound
-
-[[next2]]
-
-</tw-passagedata><tw-passagedata pid="38" name="artistic wound1" tags="" position="700,800" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 6, 0.1432,(hsl:0,0,0,0.25),0.6889,(hsl:270,0.8039,0.5,0.55)))) ouchie you got a wound
-
-[[artistic]]</tw-passagedata><tw-passagedata pid="39" name="charmerwound" tags="" position="850,1225" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 6, 0.1432,(hsl:0,0,0,0.25),0.6889,(hsl:270,0.8039,0.5,0.55)))) ouchie you got a wound
+ [[continue onwards]]</tw-passagedata><tw-passagedata pid="8" name="step onto the stairs" tags="" position="2900,1200" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
 
 
-[[charasmatic 2]]</tw-passagedata><tw-passagedata pid="40" name="wound-lawyer" tags="" position="1300,1400" size="100,100">[[lawyer2]]</tw-passagedata><tw-passagedata pid="41" name="lawyer2" tags="" position="1200,1500" size="100,100">[[convergance]] </tw-passagedata><tw-passagedata pid="42" name="wound-religous" tags="" position="400,1200" size="100,100">[[wound-religous2]]
 
-[[religous 4]]</tw-passagedata><tw-passagedata pid="43" name="wound-religous2" tags="" position="200,1250" size="100,100">[[religous3]]</tw-passagedata><tw-passagedata pid="44" name="religous 5" tags="" position="300,1500" size="100,100">[[religous wound 3]]
+\
 
-[[convergance]] </tw-passagedata><tw-passagedata pid="45" name="wound-pagan" tags="" position="625,1250" size="100,100">[[pagan]]
 
-[[pagan2]]</tw-passagedata><tw-passagedata pid="46" name="pagan2" tags="" position="500,1300" size="100,100">[[wound pagan2]]
 
-[[pagan3]]</tw-passagedata><tw-passagedata pid="47" name="wound pagan2" tags="" position="625,1425" size="100,100">[[pagan3]]</tw-passagedata><tw-passagedata pid="48" name="pagan3" tags="" position="500,1500" size="100,100">[[pagan wound3]]
 
-[[convergance]]</tw-passagedata><tw-passagedata pid="49" name="criminal 2" tags="" position="1550,1300" size="100,100">[[criminal 3]]
+\
 
-[[wound-criminal]]</tw-passagedata><tw-passagedata pid="50" name="nightwatch 2" tags="" position="1400,1500" size="100,100">[[convergance]] </tw-passagedata><tw-passagedata pid="51" name="wound-nightwatch" tags="" position="1450,1425" size="100,100">[[nightwatch 2]]</tw-passagedata><tw-passagedata pid="52" name="criminal 3" tags="" position="1600,1500" size="100,100">[[convergance]] </tw-passagedata><tw-passagedata pid="53" name="wound-criminal" tags="" position="1625,1400" size="100,100">[[criminal 3]]</tw-passagedata><tw-passagedata pid="54" name="detective 2" tags="" position="1900,1700" size="100,100">[[detective 3]]
+A soft cascade of muck flows down each step, coating your shoes. You reach the zenith and find an intersection. To the left, a borken down door reveals a dressing room filled with coat racks and clothing. The center, a long and narrow hallway of portraits. To the right a green house windowed door.
 
-[[wound detective 2]]
+Enter the [[dressing]] room
 
-[[wound detective 2]]</tw-passagedata><tw-passagedata pid="55" name="wound detective" tags="" position="2025,1600" size="100,100">[[detective 2]] </tw-passagedata><tw-passagedata pid="56" name="pagan wound3" tags="" position="525,1725" size="100,100">[[convergance]]</tw-passagedata><tw-passagedata pid="57" name="convergance" tags="" position="975,2000" size="100,100">[[low amount of wounds]]
+\
 
-[[medium amount of wounds]]
+Enter the halway of [[portraits]]
 
-[[large amount of wounds]]</tw-passagedata><tw-passagedata pid="58" name="religous wound 3" tags="" position="325,1650" size="100,100">[[convergance]] </tw-passagedata><tw-passagedata pid="59" name="charasmatic 3" tags="" position="1000,1500" size="100,100">[[convergance]] </tw-passagedata><tw-passagedata pid="60" name="detective 3" tags="" position="1900,1900" size="100,100">[[convergance]] 
+\
+</tw-passagedata><tw-passagedata pid="9" name="Stay close to the wall to prevent the creaking" tags="" position="3800,1200" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
 
-[[bad end 1]] </tw-passagedata><tw-passagedata pid="61" name="wound detective 2" tags="" position="2075,1850" size="100,100">[[detective 2]] </tw-passagedata><tw-passagedata pid="62" name="low amount of wounds" tags="" position="1000,2200" size="100,100">[[bad end 3]]
 
-[[end 1]]
 
-[[end 2]]
+\
 
-[[good end 3]]</tw-passagedata><tw-passagedata pid="63" name="medium amount of wounds" tags="" position="1200,2200" size="100,100">[[good end 1]]
 
-[[good end 2]]
 
-[[good end 3]]
 
-[[end 2]]</tw-passagedata><tw-passagedata pid="64" name="large amount of wounds" tags="" position="800,2200" size="100,100">[[bad end 1]]
+\
 
-[[bad end 2]]
 
-[[bad end 3]]</tw-passagedata><tw-passagedata pid="65" name="bad end 2" tags="" position="600,2400" size="100,100"></tw-passagedata><tw-passagedata pid="66" name="bad end 3" tags="" position="800,2400" size="100,100"></tw-passagedata><tw-passagedata pid="67" name="end 1" tags="" position="1000,2400" size="100,100"></tw-passagedata><tw-passagedata pid="68" name="end 2" tags="" position="1200,2400" size="100,100"></tw-passagedata><tw-passagedata pid="69" name="good end 3" tags="" position="1400,2400" size="100,100"></tw-passagedata><tw-passagedata pid="70" name="good end 1" tags="" position="1600,2400" size="100,100"></tw-passagedata><tw-passagedata pid="71" name="good end 2" tags="" position="1800,2400" size="100,100"></tw-passagedata><tw-passagedata pid="72" name="surrealist 2" tags="" position="750,1300" size="100,100">[[surrealist wound2]]
+A soft cascade of muck flows down each step, coating your shoes. You reach the zenith and find an intersection. To the left, a borken down door reveals a dressing room filled with coat racks and clothing. The center, a long and narrow hallway of portraits. To the right, a boarded up door.
 
-[[surrealist 3]]</tw-passagedata><tw-passagedata pid="73" name="surrealist wound2" tags="" position="850,1400" size="100,100">[[surrealist 3]] </tw-passagedata><tw-passagedata pid="74" name="surrealist 3" tags="" position="750,1500" size="100,100">[[convergance]] 
+\
 
-[[surrealist wound 3]]</tw-passagedata><tw-passagedata pid="75" name="surrealist wound 3" tags="" position="875,1525" size="100,100">[[surrealist 3]] </tw-passagedata><tw-passagedata pid="76" name="wound example 1%" tags="" position="650,100" size="100,100">[[continue]] </tw-passagedata></tw-storydata>
+[[Dressing room]]
+
+\
+
+[[Portrait hallway]]
+
+\
+
+(if: $crowbar is 1)[[Pry open right doorway with your crowbar]]</tw-passagedata><tw-passagedata pid="10" name="Shoot the figure" tags="" position="4000,1600" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+You empty all six rounds into the figure. It&#39;s not the first time you&#39;ve had to, and its what they trained you to do. But the police union won&#39;t have your back all the way out here. 
+
+Then again, when is anyone coming to search this house? 
+
+The figure falls over with a wooden thunk, and lies still. No scream to accompany it. No blood on your hands -- today.
+
+You will get her back. You will not fail her.
+
+\
+
+[[Lawman]], you reload your service weapon and continue into the next room.</tw-passagedata><tw-passagedata pid="11" name="Illuminate the figure" tags="" position="3600,1600" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+You pull out your flashlight, company issue, and illuminate the figure that drew your attention. Unstartled by the banality of what you see you swiftly move on. You&#39;ve patrolled a thousand buildings during the empty of night, and whenever the creeping hints of the supernatural tease you, you are quickly and forever reminded by the shining light that the truth is always far more ordinary.
+
+\ 
+
+[[Stalwart nightwatch]] continue onto the next room.</tw-passagedata><tw-passagedata pid="12" name="Creep past the figure" tags="" position="3800,1600" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+You&#39;ve navigated and eluded the law enough to know when to keep your cool. Regardless of who or what the figure is they won&#39;t see you as you crouch into a silent movement and creep past onto the next room.
+
+\
+
+[[On the wrong side of the law]], but not yet caught, you move onto the next room.</tw-passagedata><tw-passagedata pid="13" name="Lawman" tags="" position="4000,1800" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+
+
+\
+
+&#39;She will be returned.&#39; The words reverberate in the cold chasm of your mind. You can get her back, keep the world right. You move into a large bedroom, checking your corners sloppily in the dark. An open window allows moonlight and wind a welcome. 
+
+You take the money from your pocket. &quot;I brought the money,&#39; you whimper, revolver ready.
+
+&#39;Who is this girl to you?&#39; The wind belows in fury.
+
+Who is this girl to you?
+
+\
+
+A lost little [[sheep]], a citizen you have been charged with protecting,with watching over.
+
+\
+
+A [[victim]], someone the world failed to protect. All you can do is find her and bring some solace and closure, maybe even justice. If there even is any.</tw-passagedata><tw-passagedata pid="14" name="sheep" tags="" position="4000,2000" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+
+
+\
+
+The window slams shut and cackles in creaking wood and splitering glass.
+
+&#39;Murderer!&#39;
+
+&#39;No,&#39; your voice resonates with its usual defiance.
+
+&#39;Murderer!&#39; another voice whispers from behind the curtains of a four poster bed from deepest antiquity. 
+
+You wave the money, &#39;I brought it, brought it all, now give her back! I must bring her back!&#39;
+
+&#39;You killed her,&#39; comes the reply.
+
+&#39;No, look.&#39;
+
+You pull out the crumpled letter to check its well memorised words. 
+
+You killed her.
+You killed her.
+You killed her.
+You killed her.
+
+You killed her&#39; 
+
+&#39;I- I was just doing my job, i though- i thought she had a weapon.&#39; You say meekly.
+
+[[You killed her]]
+[[You killed her]]
+[[You killed her]]
+[[You killed her]]</tw-passagedata><tw-passagedata pid="15" name="victim" tags="" position="4200,2000" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+
+
+\
+
+Your detective work has lead you here. The letter implies the girl might be saved. But whoever sent it doesnt know you already found the body. The dining room looks to be ransacked, cupboards open and silverware looted. Photoframes litter the dining table though, a macabre display. Each photo depicting a crime scene shot of the woman in her murdrered state. 
+
+You pause at the impossible gallery.
+
+\ 
+
+
+
+Take a gulp from your minifridge bottle of cheap vodka to [[Calm your nerves]]
+
+\
+
+[[Check your case files]] to compare the photos to yours.</tw-passagedata><tw-passagedata pid="16" name="Repaint her" tags="" position="2300,3100" size="100,100">You cannot save her now, but her nature is malleable. You drench your hands in the field of painted flowers and smother her again and again until she is happy here.
+
+\
+
+You leave the room, her smiling face staring at you in certain thankfulnes.
+
+\
+
+You return to the waking world. You find conversation banal, the world boring. You fixate on the impossible creeping tendrils of of the otherworlds. You begin to study, to learn how to repaint the world around you.
+
+\
+
+Would someone else have fared different?
+
+[[A cold night on a twisting woodland road]]</tw-passagedata><tw-passagedata pid="17" name="Stalwart nightwatch" tags="" position="3600,1800" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+You follow the hallway into a large ransacked dinning room. Cupboards and drawers open and silverware long since stolen. The table is set though, recently. Your flashlight glares through polished wine glasses. A set of candles flicker. 
+
+You hear the disctinctive sound of creaking footsteps behind you, the doors slam shut, the candles waver.
+
+The one room to be spared the sodden death of a leaking roof, the moth eaten curtains catch fire and an inferno surrounds you in seconds.
+
+\
+
+Search for something to smother the fire so you can [[Reach the door]]
+
+\
+
+[[Wade through the Fire]] to the exit door.</tw-passagedata><tw-passagedata pid="18" name="Continue into a hallway" tags="" position="2900,1600" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+
+
+
+\
+
+
+
+
+\
+
+You follow the hallway into a large ransacked dinning room. Cupboards and drawers open and silverware long since stolen. The table is set though, recently. The landscapes flares with vibrancy, of long lost horizons and worlds yet undescovered. A set of candles flicker. 
+
+You hear the disctinctive sound of creaking footsteps behind you, the doors slam shut, the candles waver.
+
+The one room to be spared the sodden death of a leaking roof, the moth eaten curtains catch fire and an inferno surrounds you in seconds.
+
+\
+
+The canvas room flickers rabid with the licks of flame. Enter the painting, become &#39;of it&#39;, [[cover yourself in the fire]] and continue.
+
+The landscapes have seen the house, this room, in all its glory and delapidation. How do they see it now? a burning husk? or [[a resplendid banquet]] filled with merry guests.</tw-passagedata><tw-passagedata pid="19" name="Stare at the strangely shaped shadows on the wall" tags="" position="2700,700" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+The walls lap up the twirling shapes, you see smiles unnatural.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+ 
+ [[Continue carefully onwards]]</tw-passagedata><tw-passagedata pid="20" name="Cock the hammer of the revolver" tags="" position="4000,1100" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+You throw any caution or responsibility to the wind and ready your gun, prioritising your own safety over anyone elses. 
+
+Your nerves heighten. 
+
+The creaks continue, the orchestra angry -- taunting you to shoot them.
+
+Paranoia surely, but the house seems alive doesn&#39;t it?
+
+\
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+[[Stay close to the wall to prevent the creaking]]</tw-passagedata><tw-passagedata pid="21" name="without fear" tags="" position="3100,900" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+
+You are indominable, adamant.
+The house shifts with strangeness, but its gravity has no effect on you. It is a measure of will power, and yours is so much stronger.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+ 
+
+[[continue onwards]]
+
+</tw-passagedata><tw-passagedata pid="22" name="weave with them" tags="" position="3100,1100" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+The walls bend and sway, the creaks halt as your shifting form find some momentary perfection.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+ 
+
+[[step onto the stairs]]</tw-passagedata><tw-passagedata pid="23" name="On the wrong side of the law" tags="" position="3800,1800" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+You follow the hallway into a large ransacked dinning room. Cupboards and drawers open and silverware long since stolen. The table is set though, and you notice open bottles of wine. A set of candles flicker. 
+
+You hear the disctinctive sound of creaking footsteps behind you, the doors slam shut, the candles waver.
+
+The one room to be spared the sodden death of a leaking roof, the moth eaten curtains catch fire and an inferno surrounds you in seconds.
+
+\
+
+Shatter the bottles of low % wine over the fire to douse it and [[Reach the door]]
+
+\
+
+[[Wade through the Fire]] </tw-passagedata><tw-passagedata pid="24" name="Reach the door" tags="" position="3700,2100" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+
+
+
+\
+
+
+
+\
+
+
+You manage to reach the door and slam it shut behind you, hopening the fire does not spread.
+
+\
+
+Take a moment to [[Calm your nerves]] </tw-passagedata><tw-passagedata pid="25" name="Wade through the Fire" tags="" position="3850,1950" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+You wade through the fire with little care. The house is taunting you at every corner, but it cannot harm you. Not yet.
+
+\
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+You [[Reach the door]]</tw-passagedata><tw-passagedata pid="26" name="Calm your nerves" tags="" position="4200,2200" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+
+
+
+\
+
+
+
+
+\
+
+You stubmle into another hallway dripping with a sickly mucus. The walls quiver like flesh and what light the broken ceiling allows exposes a pinkish hue to the walls. You traverse a worming array of roots and reach an ever slightly glowing blockade. 
+
+An insects, a worms membrane. Barring the end of the hallway.
+
+
+[[Attempt to step through it]]
+
+\
+
+[[Fire your revolver into it]]
+
+\
+
+[[Rip out the roots that litter the floor to sap the living thing of its life]]
+
+\
+
+[[Leave and find a detour through another room]]
+
+\
+
+[[Demand it grant you access]]</tw-passagedata><tw-passagedata pid="27" name="Check your case files" tags="" position="4400,2100" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+The photos are near identical. How did someone else have access to these?
+You backtrack to the hallway that lead to the dinning room and stare at the aged portraits. The same face. Her face. 
+
+\
+
+The house knows. The obsessions in the mausoleum of your head.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+Take a breath and [[Calm your nerves]] </tw-passagedata><tw-passagedata pid="28" name="Enter the room" tags="" position="3000,2700" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+(if: $Ignorance is 72)+(text-colour:#2ea3a3)[//You traverse the veil in the waking world. The laws of physics bend and change with the whims of ancients. A titanic god made of stars looms over the planet//]
+
+
+
+\
+
+
+
+
+\
+
+The bedroom is cold. The window shudders open and midnight air assaults you. A tall painting hangs above the bed. You see her standing there, back turned, within the painting. Her brushstrokes faded, wearing thin. You call out, you fumble with the wad of money in your pocket. She walks away into the distant, form dissovling.
+
+\
+
+(if: $Ignorance is 2)[[Step through the portrait]]
+(if: $Ignorance is 12)[[Step through the portrait]]
+(if: $Ignorance is 22)[[Step through the portrait]]
+(if: $Ignorance is 32)[[Step through the portrait]]
+(if: $Ignorance is 42)[[Stride through the portrait]]
+(if: $Ignorance is 52)[[Stride through the portrait]]
+(if: $Ignorance is 62)[[Stride through the portrait]]
+(if: $Ignorance is 72)[[Walk through the portrait]]</tw-passagedata><tw-passagedata pid="29" name="Bedroom" tags="" position="3000,2500" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+(if: $Ignorance is 72)+(text-colour:#2ea3a3)[//You traverse the veil in the waking world. The laws of physics bend and change with the whims of ancients. A titanic god made of stars looms over the planet//]
+
+
+
+\
+
+
+
+
+\
+
+You pass the membrane and find yourself at a series of doors.
+You see light and shadows moving beneath the gap of a door at the end of the hallway. Voices argue back and forth.
+
+[[Enter the room]] 
+
+\
+
+You have journeyed too far, too deep. You take this last chance to save yourself. You [[leave]] </tw-passagedata><tw-passagedata pid="30" name="Stride through the portrait" tags="" position="3000,2900" size="100,100">You push your way through the soggy paint and warping canvas. You break into another room, the walls dripping with pigment. The girl is here, etched into the paint.
+
+
+[[Scrape the pigment girl off]] the walls and take her.
+
+\
+
+The house is a blight, this warped realm must be destroyed, [[set fire to the painting]]
+
+\
+
+[[Take the money and leave]]
+
+\
+
+[[Search the room]]</tw-passagedata><tw-passagedata pid="31" name="Step through the portrait" tags="" position="3800,2900" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+(if: $Ignorance is 72)+(text-colour:#2ea3a3)[//You traverse the veil in the waking world. The laws of physics bend and change with the whims of ancients. A titanic god made of stars looms over the planet//]
+
+You touch the moulded oil paint, it sinks inwards with years of decay and waterlog. But you cannot pass it. You take a step back and observe it again. Nothing more than an old landscape.
+
+A note lies on the bed, the same paper as the letter crumpled up in your pocket. 
+
+&#39;Leave the money, and the girl is yours.&#39;
+
+[[Leave the money]]
+
+[[Search the room]]
+
+[[Take the money and leave]]</tw-passagedata><tw-passagedata pid="32" name="Walk through the portrait" tags="" position="2500,2900" size="100,100">The paint seems to part as you approach it. You enter the painting and follow her wake.
+
+A field of flowers cling to you both. Paint surrounds you, sticky and smelling of spring.
+
+
+[[Repaint her]]
+
+\
+
+[[Stay in the house]]
+
+\
+
+[[Scrape the pigment girl off]]</tw-passagedata><tw-passagedata pid="33" name="Stay in the house" tags="" position="2500,3100" size="100,100">You have found her, here in the paint. 
+
+\
+
+There is no longer any reason to leave. You dance on the walls you two figures of pigment. 
+You have seen the true world beyong the veil and joined it.
+
+\
+
+Would someone else have fared different?
+
+[[A cold night on a twisting woodland road]]</tw-passagedata><tw-passagedata pid="34" name="Take the money and leave" tags="" position="3500,3100" size="100,100">You stash the money back into your pocket. Nothing is worth this, not the girl and not your life.
+
+You flee the house, leaving it all behind you.
+
+\
+
+You return to your normal life, forgeting all the odditites of the manor, but not the shivers of regret that assail you from time to time.
+
+
+\
+
+Would someone else have fared different?
+
+[[A cold night on a twisting woodland road]]</tw-passagedata><tw-passagedata pid="35" name="Search the room" tags="" position="3700,3100" size="100,100">You search the room and find her shivering under the bed. You grab her by the hand and rush out the door. The house creaks as you flee.
+
+\
+
+You are glad you didn&#39;t have to part with the money. You exchange no words.
+
+\
+
+You return to your normal life, and tell no one of this strange story. You saw strange things, but old houses are just like that.
+
+\
+
+Would someone else have fared different?
+
+[[A cold night on a twisting woodland road]]</tw-passagedata><tw-passagedata pid="36" name="Leave the money" tags="" position="3900,3100" size="100,100">You leave the money, trusting on good faith that the person will hold to their word.
+
+You make your way out of the manor, faster this time and ready to be rid of this place.
+
+\
+
+The girl waits by your car, shivering in the cold. You do not exchange words.
+
+\
+
+You return to your life as it was before. You saw strange things that night but chalk it up to midnight paranoia.
+
+\
+
+Would someone else have fared different?
+
+[[A cold night on a twisting woodland road]]</tw-passagedata><tw-passagedata pid="37" name="Enter the Woods" tags="" position="2900,200" size="100,100">(if: $Ignorance is 1)+(text-colour:#2ea3a3)[//You are happily Ignorant of the true nature of the world//]
+
+
+
+
+
+
+
+\
+
+
+
+\
+
+
+How unromantic the tangled rotten branches are, crisscrossing your traversal and often forcing you to deviate as they completely block the archaic dirt path. The woods hiss deep into your ear and above them you hear the faintest, loudest whisper tickling at the cochlea hairs. A girl&#39;s voice.
+
+\
+
+[[Investigate the whisper]]
+
+\
+
+[[Keep your focus and continue]]
+</tw-passagedata><tw-passagedata pid="38" name="open" tags="" position="2900,600" size="100,100">(if: $Ignorance is &gt; 1)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+
+
+
+
+
+
+
+\
+
+
+
+\
+
+
+
+
+(if: $smash is 1)[You climb through a window into the entrance, keeping the stick with you in case of more windows.]
+
+(if: $pick is 1)[You pull a sharpened hairpin from your coat jacket and fumble around with the lock. The mechanism has long since fallen out of favour in lieu of modern locks and you find it simple to open. You put the makeshift lock pick back into your pocket.]
+
+(if: $crowbar is 1)[It takes some time and effort but the iron bar eventually breaks through the sodden wood of the door, into the entrance hallway. You keep the bar with you in case of more locked doors.]
+
+
+The carpet is ragged and splinters jut out from beneath. This is the meeting place; the wad of cash feels heavy in your pocket. Shadows dance like taunting devils, cast from a single candle burning low on a cabinet. Someone is already here. 
+
+\
+
+[[Stare at the strangely shaped shadows on the wall]]
+
+\
+
+(link: &quot;Unholster your revolver&quot;)[(set: $revolver to 1)(goto: &quot;Unholster your revolver&quot;)]
+
+\
+
+[[Continue carefully onwards]]
+</tw-passagedata><tw-passagedata pid="39" name="Dressing room" tags="" position="3600,1400" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+Coats and jacketss of various assortment make it impossible to glean what people once lived here.You leave a trail of muddy footsteps overlapping with a tangle of already present ones. You follow the trail, bit by bit until you see a hanging sheet wavering in the wind, the shape of a human.
+
+\
+
+[[Creep past the figure]]
+
+\
+
+Pull out your handy torch and [[Illuminate the figure]]
+
+\
+
+[[Shoot the figure]]</tw-passagedata><tw-passagedata pid="40" name="Pry open right doorway with your crowbar" tags="" position="4000,1400" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+You break through another door into a room that someone previosuly decided you probably shoudn&#39;t. You immediately realise why, the floor has sunk in and half rotted carpet reveals a break into the room below. You make for the nearest accesible door when slithering noise from below distracts you. 
+
+A figure stands hidden in the dark, silent.
+
+Pull out your handy torch and [[Illuminate the figure]] 
+
+\
+
+[[Creep past the figure]] 
+
+\
+
+[[Shoot the figure]] </tw-passagedata><tw-passagedata pid="41" name="Portrait hallway" tags="" position="3800,1400" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+The water has warped the hallway into a optical nightmare as wallpaper loses its linearity and features of the watching portraits warp and melt. It&#39;s hard to focus on keeping your balance as the ancient faces stare at you.
+
+The sound of paper.
+
+You turn your head and see a portrait of some old man. For the sleightest of seconds his eyes move as if searching.
+
+For you.
+
+\
+
+Pull out your handy torch and [[Illuminate the figure]] 
+
+\
+
+[[Creep past the figure]] 
+
+\
+
+[[Shoot the figure]] </tw-passagedata><tw-passagedata pid="42" name="You killed her" tags="" position="4550,875" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+
+
+
+\
+
+
+
+
+\
+
+
+
+\
+
+You killed her. Pig.
+
+And you got away with it.
+
+Did you really think you could get her back?
+
+The door slams shut behind you, you twirl and empty the revolver chamber into it. Something grabs you from behind.
+
+The window bursts open one more.
+
+You feel a hot pain beneath your ribs.
+
+You did your job, and at least you will die a hero, a servant of the people. A watchdog.
+
+You killed her.
+
+\
+
+\
+
+Return to the start and pick a less fascist path through life.
+[[A cold night on a twisting woodland road]]</tw-passagedata><tw-passagedata pid="43" name="Fire your revolver into it" tags="" position="4600,2300" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+You fire your a few slugs into the sickly membrane, they sink into it like jelly. You abandon your optimism that such a human tool would render unworldy results.
+
+\
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+Take a breath and [[Calm your nerves]] </tw-passagedata><tw-passagedata pid="44" name="Rip out the roots that litter the floor to sap the living thing of its life" tags="" position="4400,2300" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +20)
+
+The otherwordly membrane beats like a shivering heart. You follow the roots that latch onto the house like a parasite. It all makes perfect sense. You begin to rip them from the walls and the floor to deny the eldritch leech its nutrients.
+The membrane begins to wither as you work until your hand can pierce its thin diaphanous door.
+
+\
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+Enter the [[Bedroom]] </tw-passagedata><tw-passagedata pid="45" name="Attempt to step through it" tags="" position="4000,2300" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+You touch the gross mucus, barely questioning its place in the manor. You feel its warm sticky mass tingle around you as you traverse. Hot breath assails your nose.
+
+\
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+Enter the [[Bedroom]] </tw-passagedata><tw-passagedata pid="46" name="Leave and find a detour through another room" tags="" position="3800,2300" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+
+
+
+\
+
+
+
+
+\
+
+You backtrack into more familiar and understandable features. You find an adjacant bedroom, furniture covered in sheets. You batter at the sodden for half an hour until you can pry your way through back into the hallway, but past the membrane.
+
+\
+
+Enter the [[Bedroom]] </tw-passagedata><tw-passagedata pid="47" name="leave" tags="" position="4300,3100" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+
+
+A coward perhaps?
+
+You return to the real world, shaken but breathing.
+
+It will weigh on you, but perhaps less than whatever lied at the end of that house.
+
+\
+
+You have seen strange things and try as you might, you find it hard to go back to your old life. Sometimes you notice things that make you falter and wonder if there is something &#39;else&#39; to it.
+
+\
+
+Would another peson had perservered?
+Return to [[A cold night on a twisting woodland road]] and see.</tw-passagedata><tw-passagedata pid="48" name="Demand it grant you access" tags="" position="4800,2300" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+
+You shout in its direction and apeal to whatever seeming sentience it has. 
+
+It shudders and you feel flourish of languages course through your thoughts. 
+
+One word you recognise: &#39;No.&#39;
+
+\
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+Take a breath and [[Calm your nerves]]</tw-passagedata><tw-passagedata pid="49" name="continue onwards" tags="" position="2900,1000" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+
+
+
+\
+
+
+
+
+\
+
+The candle flame reaches its nadir and the room goes black. You rush forward past it into the next room. A once regal foyer now covered in rubble, drops of water slobber from gaps in the roof and an undescovered genus of tree grows sickly. A set of wide stairs gape open and upwards. Chandeliers dangle at the top  -- tonsils of the waiting maw.
+
+A rat or seomthing scuttles somewhere near.
+
+The cracking of weak floorboards betrays your approach. They echo loudly like a painful orchestra.
+
+\
+
+The walls shift like brushstrokes, you need simply sway and [[weave with them]]
+
+\
+
+You are no warrior or spy, if anyone&#39;s here they already know you are too. There is no need to hide your footsteps, you [[step onto the stairs]]</tw-passagedata><tw-passagedata pid="50" name="dressing" tags="" position="2900,1400" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+
+
+
+\
+
+
+
+
+\
+
+Coats and jacketss of various assortment make it impossible to glean what people once lived here.You leave a trail of muddy footsteps overlapping with a tangle of already present ones. You follow the trail, bit by bit until you see a hanging sheet wavering in the wind, the shape of a human.
+
+\
+
+[[the figure]]. All observation of human form is dialectic. If it would be gazed at then it would gaze. You judge it as creepy and lacking in realistic features, it judges you back and you wonder what it thinks of yourown  form.
+
+\
+
+You turn your back to [[the figure]]. You refuse to be seen, to be judged by anothers gaze, even if its just a waving statue.</tw-passagedata><tw-passagedata pid="51" name="portraits" tags="" position="2600,1400" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+
+
+
+\
+
+
+
+
+\
+
+The water has warped the hallway into a optical nightmare as wallpaper loses its linearity and features of the watching portraits warp and melt. It&#39;s hard to focus on keeping your balance as the ancient faces stare at you.
+
+The sound of paper.
+
+You turn your head and see a portrait of some old man. For the sleightest of seconds his eyes move as if searching.
+
+For you.
+
+\
+
+Stare at the [[the portrait]]. All observation of art is dialectic. If it would be gazed at then it would gaze. You judge it as creepy and lacking in realistic features, it judges you back and you wonder what it thinks of your form.
+
+\
+
+You turn your back to [[the portrait]]. You refuse to be seen, to be judged by anothers gaze, even if its just paint.</tw-passagedata><tw-passagedata pid="52" name="the portrait" tags="" position="2750,1500" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+You place so much importance in what should be static paint, set in time. All the paintings that follow, all the symphony of creaks seem to have some sentience, to judge you, to desire you, to destroy you.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+ 
+[[Continue into a hallway]]</tw-passagedata><tw-passagedata pid="53" name="the figure" tags="" position="3050,1500" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+You place so much importance in what is obviously a mannequint, set in time. All the statues that follow, all the shadows, all the symphony of creaks seem to have some sentience, to judge you, to desire you, to destroy you.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+ 
+[[Continue into a hallway]]</tw-passagedata><tw-passagedata pid="54" name="cover yourself in the fire" tags="" position="3100,1700" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +20)
+
+You drench yourself in the pigment flames of immolation. As you continue on the rooms light up with your brilliance.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+ 
+
+[[reach the door]] 
+</tw-passagedata><tw-passagedata pid="55" name="a resplendid banquet" tags="" position="2700,1700" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+You politely push your way through the cackling ghosts, spilling their wine and gorging on rotten food.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+ 
+
+[[reach the door]]</tw-passagedata><tw-passagedata pid="56" name="reach the door" tags="" position="2900,1800" size="100,100">(if: $Ignorance is 2)+(text-colour:#2ea3a3)[//You are Ignorant of the true nature of the world//]
+(if: $Ignorance is 12)+(text-colour:#2ea3a3)[//You are curious of the true nature of the world//]
+(if: $Ignorance is 22)+(text-colour:#2ea3a3)[//You have peaked behind the veil//]
+(if: $Ignorance is 32)+(text-colour:#2ea3a3)[//You have seen things beyond our world, things that can not be unseen//]
+(if: $Ignorance is 42)+(text-colour:#2ea3a3)[//The chaotic rules of the otherworldly seem to have a certain reason to them, you have a rudimentary understanding of the cosmos//]
+(if: $Ignorance is 52)+(text-colour:#2ea3a3)[//You are well versed in the cosmic and the cthonic, you often find yourself thinking about such things late at night. You see doorways amongst the buildings that others don;t see//]
+(if: $Ignorance is 62)+(text-colour:#2ea3a3)[//You have a certain wisdom of the otherworldy and the occult. You see rotted gangly creatures walking amongst us. You see impossible buildings that shouldnt exist//]
+
+
+
+\
+
+
+
+
+\
+
+You stubmle into another hallway dripping with a sickly mucus. The walls quiver like flesh and what light the broken ceiling allows exposes a pinkish hue to the walls. You traverse a worming array of roots and reach an ever slightly glowing blockade. 
+
+An insects, a worms membrane. Barring the end of the hallway.
+
+
+[[Attempt to step through it]]
+
+\
+
+There is fire at hand, [[burn your way through it]]
+
+\
+
+More paintings litter the walls, covered in tendrils. What do they see? a fields of wheat and insects [[shoo the insects as you pass through the swarm]]
+
+[[Leave and find a detour through another room]]</tw-passagedata><tw-passagedata pid="57" name="burn your way through it" tags="" position="3100,2000" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+A conflagration engulfs you and the membrane, you feel the sweet breath of burning flesh.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+Enter the [[Bedroom]] 
+ 
+</tw-passagedata><tw-passagedata pid="58" name="shoo the insects as you pass through the swarm" tags="" position="2900,2000" size="100,100">(enchant:?page,(text-colour:white)+(bg:(gradient: 176, 0.3009,#000000,0.765,#247a7a)))
+
+(set: $Ignorance to $Ignorance +10)
+
+The insects cover your body and you feel their warmth as you pass through the swarm.
+
+You lose a measure of what ignorance you had.
+
+Once you were naive and unaware of how the world works, the cosmos churning just beyond your peripherals, now you are less so. You took a peek behind the veil, and what is known can not be unknown; your synapses shift and rewrite as you become wiser, and more aware – for better or for worse.
+
+\
+
+Enter the [[Bedroom]] </tw-passagedata><tw-passagedata pid="59" name="set fire to the painting" tags="" position="3000,3100" size="100,100">The fire takes hold quickly, and the walls pulsate in response. The painted girl screams, but she is lost now, a siren that must be left behind.
+
+You run, pushing your burnt self back through the paintings canvas door.
+
+Paint melts and splashes behind you -- a cascade.
+
+\
+
+You run and run, without glancing back. 
+
+\
+
+You return to your life. The girls screaming pigment haunts you. You have seen things, you know things. And no matter how hard you try you cant seem to distract yourself. Sometimes during conversation, your friends look at you strangely and you realise your sentences have slipped into ideas and thoughts of the otherworlds that they don&#39;t understand.
+
+\
+
+Would someone else have fared different?
+
+[[A cold night on a twisting woodland road]]</tw-passagedata><tw-passagedata pid="60" name="Scrape the pigment girl off" tags="" position="2700,3100" size="100,100">You scrape the beautiful form of the pigment girl off the wall. The thick layer of paint floppy in your arms as you leave.
+
+\
+
+You leave the house, successful, returning to your perfectly ordinary life.
+
+She sits on your own bedroom wall now. A part of your own house. Your friends always stare baffled at her, and your explenations sound like nonsense to them.
+
+Eventually they stop coming around. Some of them were not right anyway, you could see it, see the way the paint reacted to their presence.
+
+\
+
+Would someone else have fared different?
+
+[[A cold night on a twisting woodland road]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
